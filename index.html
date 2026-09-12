@@ -4,15 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifólio DesWeb</title>
+    
 </head>
 <body>
     <p>Selecione:</p>
-    <button>
-        <p>Samuel</p>
-    </button>
 
+    <button id="btn_analice">Analice</button>
+    <button id="btn_beatriz">Beatriz</button>
+    <button id="btn_catarina">Catarina</button>
+    <button id="btn_celso">Celso</button>
+    <button id="btn_samuel">Samuel</button>
 
+     <iframe src=""
+     id="video"
+                title="Homem-Aranha Através do Aranhaverso"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>   
 
+    
+    <script>
+        const btn_analice = document.getElementById('btn_analice');
+        const btn_beatriz = document.getElementById('btn_beatriz');
+        const btn_catarina = document.getElementById('btn_catarina');
+        const btn_celso = document.getElementById('btn_celso');
+        const btn_samuel = document.getElementById('btn_samuel');
+        const video = document.getElementById('video');
 
+        btn_analice.addEventListener('click', function() {
+            video.src = "https://www.youtube.com/embed/f5pCVs10uZs?si=NRpoxc7Tey6YGP8D";
+
+        })
+        btn_beatriz.addEventListener('click', function() {
+            video.src = "https://www.youtube.com/embed/vMJ6rUG2rGc?si=6bglvyBy7cYHU9TJ";
+
+        })
+        btn_catarina.addEventListener('click', function() {
+            video.src = "https://www.youtube.com/embed/nis_k3FktEk?si=TPcwZ7ARkuiEpVyT";
+
+        })
+        btn_celso.addEventListener('click', function() {
+            video.src = "https://www.youtube.com/embed/LOfPR31INzw?si=pNFqHUdDR_6wkE91";
+
+        })
+        btn_samuel.addEventListener('click', function() {
+            video.src = "https://www.youtube.com/embed/d5rXulkkSa0?si=yswvmW6Zbp1eZZf6";
+
+        })
+    </script>
+        
+    
 </body>
 </html>
