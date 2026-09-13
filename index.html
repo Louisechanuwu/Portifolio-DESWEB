@@ -3,25 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio DesWeb</title>
-    
+    <title>Portfólio DesWeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .botoes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <p>Selecione:</p>
 
-    <button id="btn_analice">Analice</button>
-    <button id="btn_beatriz">Beatriz</button>
-    <button id="btn_catarina">Catarina</button>
-    <button id="btn_celso">Celso</button>
-    <button id="btn_samuel">Samuel</button>
+    <h1 id="titulo">Escolha o profissional que vai mudar o seu futuro</h1>
+    <p>Selecione um profissional para ver o portfólio:</p>
 
-     <iframe src=""
-     id="video"
-                title="Homem-Aranha Através do Aranhaverso"
+    <div class="botoes-container">
+        <button id="btn_analice">Analice</button>
+        <button id="btn_beatriz">Beatriz</button>
+        <button id="btn_catarina">Catarina</button>
+        <button id="btn_celso">Celso</button>
+        <button id="btn_samuel">Samuel</button>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/f5pCVs10uZs?si=NRpoxc7Tey6YGP8D"
+                id="video"
+                title="Portfólio"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>   
+    </div>
 
-    
     <script>
         const btn_analice = document.getElementById('btn_analice');
         const btn_beatriz = document.getElementById('btn_beatriz');
@@ -32,26 +112,24 @@
 
         btn_analice.addEventListener('click', function() {
             video.src = "https://www.youtube.com/embed/f5pCVs10uZs?si=NRpoxc7Tey6YGP8D";
+        });
 
-        })
         btn_beatriz.addEventListener('click', function() {
             video.src = "https://www.youtube.com/embed/vMJ6rUG2rGc?si=6bglvyBy7cYHU9TJ";
+        });
 
-        })
         btn_catarina.addEventListener('click', function() {
             video.src = "https://www.youtube.com/embed/nis_k3FktEk?si=TPcwZ7ARkuiEpVyT";
+        });
 
-        })
         btn_celso.addEventListener('click', function() {
             video.src = "https://www.youtube.com/embed/LOfPR31INzw?si=pNFqHUdDR_6wkE91";
+        });
 
-        })
         btn_samuel.addEventListener('click', function() {
             video.src = "https://www.youtube.com/embed/d5rXulkkSa0?si=yswvmW6Zbp1eZZf6";
-
-        })
+        });
     </script>
         
-    
 </body>
 </html>
