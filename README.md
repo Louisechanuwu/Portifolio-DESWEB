@@ -5,7 +5,6 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
-> Aplicação web responsiva e dinâmica desenvolvida para a centralização e exibição de portfólios individuais dos membros do grupo DesWeb através de integração com mídias em vídeo MP4 local.
 
 ---
 
