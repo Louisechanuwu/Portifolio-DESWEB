@@ -21,6 +21,7 @@
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
+            transition: background-color 0.4s ease; /* Efeito visual dinâmico no fundo */
         }
 
         h1 {
@@ -31,7 +32,20 @@
 
         p {
             color: #94a3b8;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Área dinâmica para mostrar detalhes únicos de cada membro */
+        #info-membro {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            min-height: 30px;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
         }
 
         .botoes-container {
@@ -85,13 +99,16 @@
 
     <h1 id="titulo">Escolha o profissional que vai mudar o seu futuro</h1>
     <p>Selecione um profissional para ver o portfólio:</p>
+    
+    <!-- Elemento que muda de texto dependendo do botão clicado -->
+    <div id="info-membro">Selecione um membro abaixo para ver os detalhes</div>
 
     <div class="botoes-container">
-        <button id="btn_analice">Analice</button>
-        <button id="btn_beatriz">Beatriz</button>
-        <button id="btn_catarina">Catarina</button>
-        <button id="btn_celso">Celso</button>
-        <button id="btn_samuel">Samuel</button>
+        <button onclick="mudarPortfolio('analice')">Analice</button>
+        <button onclick="mudarPortfolio('beatriz')">Beatriz</button>
+        <button onclick="mudarPortfolio('catarina')">Catarina</button>
+        <button onclick="mudarPortfolio('celso')">Celso</button>
+        <button onclick="murus = null; mudarPortfolio('samuel')">Samuel</button>
     </div>
 
     <div class="video-container">
@@ -103,32 +120,54 @@
     </div>
 
     <script>
-        const btn_analice = document.getElementById('btn_analice');
-        const btn_beatriz = document.getElementById('btn_beatriz');
-        const btn_catarina = document.getElementById('btn_catarina');
-        const btn_celso = document.getElementById('btn_celso');
-        const btn_samuel = document.getElementById('btn_samuel');
-        const video = document.getElementById('video');
+        // "Banco de dados" local simulado diretamente no script JavaScript
+        const dadosMembros = {
+            analice: {
+                videoUrl: "https://www.youtube.com/embed/f5pCVs10uZs?si=NRpoxc7Tey6YGP8D",
+                texto: "✨ Analice - Markdown",
+                corDestaque: "#ec4899" // Rosa
+            },
+            beatriz: {
+                videoUrl: "https://www.youtube.com/embed/vMJ6rUG2rGc?si=6bglvyBy7cYHU9TJ",
+                texto: "🚀 Beatriz - Read-me",
+                corDestaque: "#8b5cf6" // Roxo
+            },
+            catarina: {
+                videoUrl: "https://www.youtube.com/embed/nis_k3FktEk?si=TPcwZ7ARkuiEpVyT",
+                texto: "🎯 Catarina - Read-me",
+                corDestaque: "#10b981" // Verde
+            },
+            celso: {
+                videoUrl: "https://www.youtube.com/embed/LOfPR31INzw?si=pNFqHUdDR_6wkE91",
+                texto: "⚙️ Celso - Backend",
+                corDestaque: "#f59e0b" // Laranja
+            },
+            samuel: {
+                videoUrl: "https://www.youtube.com/embed/d5rXulkkSa0?si=yswvmW6Zbp1eZZf6",
+                texto: "🛡️ Samuel - Frontend",
+                corDestaque: "#06b6d4" // Ciano
+            }
+        };
 
-        btn_analice.addEventListener('click', function() {
-            video.src = "https://www.youtube.com/embed/f5pCVs10uZs?si=NRpoxc7Tey6YGP8D";
-        });
+        // Função única que lida com o clique e altera o frontend de forma personalizada
+        function mudarPortfolio(membroKey) {
+            const dados = dadosMembros[membroKey];
+            const video = document.getElementById('video');
+            const infoDiv = document.getElementById('info-membro');
+            const titulo = document.getElementById('titulo');
 
-        btn_beatriz.addEventListener('click', function() {
-            video.src = "https://www.youtube.com/embed/vMJ6rUG2rGc?si=6bglvyBy7cYHU9TJ";
-        });
+            // 1. Muda o vídeo do iframe
+            video.src = dados.videoUrl;
 
-        btn_catarina.addEventListener('click', function() {
-            video.src = "https://www.youtube.com/embed/nis_k3FktEk?si=TPcwZ7ARkuiEpVyT";
-        });
+            // 2. Muda o texto descritivo do membro
+            infoDiv.textContent = dados.texto;
 
-        btn_celso.addEventListener('click', function() {
-            video.src = "https://www.youtube.com/embed/LOfPR31INzw?si=pNFqHUdDR_6wkE91";
-        });
-
-        btn_samuel.addEventListener('click', function() {
-            video.src = "https://www.youtube.com/embed/d5rXulkkSa0?si=yswvmW6Zbp1eZZf6";
-        });
+            // 3. Efeito frontend extra: altera a cor da borda da caixinha de info dinamicamente
+            infoDiv.style.borderColor = dados.corDestaque;
+            
+            // 4. Alerta visual sutil no título principal
+            titulo.textContent = `Visualizando o portfólio de: ${membroKey.toUpperCase()}`;
+        }
     </script>
         
 </body>
